@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cebu Eastern College</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add Bootstrap CSS and JS links here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./img/favico.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom CSS for positioning */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        #search-button {
+            justify-content: end; /* Adjust margin as needed */
+        }
+
+        /* Style for the hero section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* 100% of viewport height */
+            overflow: hidden;
+        }
+
+        /* Style for the video element */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire container */
+        }
+
+        /* Style for content inside the hero */
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Additional styles for text */
+
+        p {
+            font-size: 18px;
+        }
+
+       
+        #navbarNav {
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .nav-link{
+        color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Style for the two-column section */
+        .two-column-section {
+            padding: 50px 0;
+           
+        }
+
+        /* Style for text column */
+        .text-column {
+            padding: 20px;
+        }
+
+        /* Style for image column */
+        .image-column {
+            padding: 20px;
+        }
+
+        /* Style for responsive images */
+        .embed-responsive-item{
+            max-width: 100%;
+            width: 800px;
+            height: 400px;
+        }
+
+        .remove-padding{
+            padding: 0;
+        }
+
+        .bg-grey{
+            background-color: #ececec;
+        }
+
+        /* Custom CSS for hover effect */
+        .card-img-top:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        /* Remove padding for the columns */
+        .remove-padding {
+            padding: 0;
+        }
+
+        .nav-margin-left{
+            margin-left: 20px;
+        }
+
+        .fs-large{
+    font-size: calc(3.5rem + 1.5vw)!important;
+        }
+
+        .index-3{
+            z-index: 3;
+        }
+
+        .display-7{
+            font-size: calc(2.625rem + 4.5vw);
+    font-weight: 400;
+    line-height: 1.2;
+        }
+
+        .logo-opacity{
+            opacity: 0.7;
+        }
+
+        .course-container{
+            margin: 0 auto;
+            min-width: 100wh;
+            padding: 50px;
+    
+            }     
+
+            .bg-darkgrey{
+                background-color: #1e1e1e;
+            }   
+
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+
+            a:hover{
+                color: inherit;
+            }
+             /* Style for card background on hover */
+    .card:hover {
+        background-color: rgba(88,88,88, 1.0);
+    }
+    .card-link:hover svg {
+        fill: white; /* Change to the desired color */
+    }
+
+    svg{
+       width: 40px; /* Change to the desired width */
+        height: 40px; /* Change to the desired height */
+    }
+
+   .card-title {
+    position: relative;
+    display: inline-block;
+}
+
+.card-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+    display: inline-block; /* Make the pseudo-element inline-block */
+}
+
+.card-title:hover::before {
+    width: 100%;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    background-color: #fff; /* Change to the desired color */
+}
+
+.footer-links a{
+    color:  #3c3c3c;
+}
+
+.footer-links a:hover{
+    color: white;
+    text-decoration: underline;
+}
+/* Style for the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 60px;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+/* Style for the search input */
+.search-bar {
+    width: 0;
+    padding: 10px 0;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    transition: 500ms;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-brand span{
+    color: transparent; /* Hide text by making it transparent */
+    font-size: 0; /* Set font size to 0 to completely remove space */
+  }
+}
+
+
+    </style>
+</head>
+<body>
+     <video autoplay muted loop>
+            <source src="1video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+<header class="navbar navbar-light">
+    <div class="container">
+        <!-- Logo on the left -->
+        <a class="navbar-brand text-white fs-2 logo-opacity" href="#">
+            <img src="./img/logo.png" alt="Your Logo" width="80">
+            <span>Cebu Eastern College</span>
+        </a>
+
+        <div class="d-flex">
+            <!-- Search input and button with Font Awesome icon on the left -->
+         <div class="search-container">
+        <input type="text" class="form-control search-bar" placeholder="Search...">
+        <button class="btn search-button"> <i class="fas fa-search text-white"></i> <!-- Use Font Awesome icon class --></button>
+    </div>
+        <!-- Toggle button on the right -->
+        <button class="navbar-toggler index-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+        
+
+        <!-- Navbar on the right -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item">
+                    <a class="nav-link nav-margin-left fs-large" href="#">Home</a>
+                </li>
+                <li class="nav-item nav-margin-left fs-large">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item nav-margin-left fs-large">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item nav-margin-left fs-large">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+        <!-- Video element with your video source -->
+
+        <!-- Content inside the hero -->
+        <div class="hero-content">
+            <h1 class="display-7">Cebu Eastern College</h1>
+            <p class="fs-2">Be part of the EASTERNIAN Community, where QUALITY EDUCATION is LESS EXPENSIVE.</p>
+        </div>
+    </div>
+
+    <!-- Two-column section -->
+    <div class="container two-column-section">
+        <div class="row">
+            <!-- Text column -->
+            <div class="col-md-6 text-column">
+                <h2 class="display-3">Explore Our School</h2>
+                <p>Founded in 1915, Cebu Eastern College (CEC) is the 4TH OLDEST EXISTING CHINESE SCHOOL in the Philippines. Its roots can be traced to Cebu Chinese School, and the subsequent merging with Cebu Sun Yat Sen High School which was founded in 1925; the school was born as the Cebu Chinese High School.</p>
+            </div>
+            
+            <!-- Video column -->
+<div class="col-md-6 image-column">
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tu9CJcg2NLQ" allowfullscreen></iframe>
+    </div>
+</div>
+        </div>
+    </div>
+
+<hr></hr>
+    <div class="container my-5 bg-grey py-5 px-5">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 class="display-4 mb-4">Connecting with the community</h2>
+        </div>
+    </div>
+     <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/1.jpg" class="card-img-top" alt="Image 1">
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/2.jpg" class="card-img-top" alt="Image 2">
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/3.jpg" class="card-img-top" alt="Image 3">
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/4.jpg" class="card-img-top" alt="Image 4">
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/5.jpg" class="card-img-top" alt="Image 5">
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/6.jpg" class="card-img-top" alt="Image 6">
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/7.jpg" class="card-img-top" alt="Image 7">
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <div class="card">
+                    <img src="./img/8.jpg" class="card-img-top" alt="Image 8">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Courses section -->
+<div class="bg-black course-container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 class="display-4 mb-4 text-white">Our Courses</h2>
+        </div>
+    </div>
+
+    <div class="row text-white">
+    <!-- Course 1 -->
+    <div class="col-md-4">
+        <a href="your-link-for-course-1.html" class="card-link">
+            <div class="card mb-4 bg-darkgrey">
+                <img src="./img/course1.jpg" class="card-img-top" alt="Course 1">
+                <div class="card-body">
+                    <h5 class="card-title">BS Information Technology</h5>
+                    <p class="card-text">Description of Course 1.</p>
+                      <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg>
+                    <span>Learn More</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Course 2 -->
+    <div class="col-md-4">
+        <a href="your-link-for-course-2.html" class="card-link">
+            <div class="card mb-4 bg-darkgrey">
+                <img src="./img/course2.jpg" class="card-img-top" alt="Course 2">
+                <div class="card-body">
+                    <h5 class="card-title">Bachelor of Secondary Education</h5>
+                    <p class="card-text">Description of Course 2.</p>
+                      <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg>
+                    <span>Learn More</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Course 3 -->
+    <div class="col-md-4">
+        <a href="your-link-for-course-3.html" class="card-link">
+            <div class="card mb-4 bg-darkgrey">
+                <img src="./img/course3.jpg" class="card-img-top" alt="Course 3">
+                <div class="card-body">
+                    <h5 class="card-title">Hospitality and Management</h5>
+                    <p class="card-text">Description of Course 3.</p>
+                   <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg>
+                    <span>Learn More</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+
+</div>
+
+
+<div style="padding: 0; margin-top: unset;">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #111111;">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Links -->
+      <section>
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5">
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h4 class="text-uppercase font-weight-bold footer-links">
+              <a href="#!" class="">About us</a>
+            </h4>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h4 class="text-uppercase font-weight-bold  footer-links">
+              <a href="#!" class="">Products</a>
+            </h4>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h4 class="text-uppercase font-weight-bold  footer-links">
+              <a href="#!" class="">Awards</a>
+            </h4>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h4 class="text-uppercase font-weight-bold  footer-links">
+              <a href="#!" class="">Help</a>
+            </h4>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h4 class="text-uppercase font-weight-bold  footer-links">
+              <a href="#!" class="">Contact</a>
+            </h4>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row-->
+      </section>
+      <!-- Section: Links -->
+
+      <hr class="my-5" />
+
+      <!-- Section: Text -->
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+           <img src="./img/logo.png" alt="Your Logo" width="80">
+          </div>
+        </div>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Social -->
+      <section class="text-center mb-5">
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </section>
+      <!-- Section: Social -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href=""
+         >Cebu Eastern College</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
+<!-- End of .container -->
+</body>
+
+<script type="text/javascript">
+    const searchButton = document.querySelector(".search-button");
+    const searchBar = document.querySelector(".search-bar");
+searchButton.addEventListener('click', function(){
+    
+    if (window.getComputedStyle(searchBar).width === "0px") {
+        searchBar.style.width = "200px";
+    }
+    else{
+            searchBar.style.width = "0px";
+    }
+});
+
+searchBar.addEventListener("keyup", function(event) {
+    const value = document.querySelector(".search-bar").value;
+            if (event.key === "Enter") {
+                if(value === ""){
+                    return;
+                }
+                else searchKey(value);
+            }
+        });
+
+
+
+
+
+
+
+</script>
+</html>
